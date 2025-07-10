@@ -9,7 +9,14 @@ class Config:
         return self.config["DEFAULT"].get("LLM_OPTIONS").split(", ")
     
     def get_usecase_options(self):
-        return self.config["DEFAULT"].get("USECASE_OPTIONS").split(", ")
+        # Support both USECASE_OPTIONS and USERCASE_OPTIONS (typo in ini)
+        value = self.config["DEFAULT"].get("USECASE_OPTIONS")
+        if value is None:
+            value = self.config["DEFAULT"].get("USERCASE_OPTIONS")
+        if value:
+            return value.split(", ")
+        return []
+        
 
     def get_groq_model_options(self):
         return self.config["DEFAULT"].get("GROQ_MODEL_OPTIONS").split(", ")

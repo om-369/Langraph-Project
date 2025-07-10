@@ -1,3 +1,4 @@
+from tavily import TavilyClient
 from langchain_community.tools.tavily_search import TavilySearchResults
 from langgraph.prebuilt import ToolNode
 
