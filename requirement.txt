@@ -1,6 +1,6 @@
 langchain
 langgraph
-langchain_community
+langchain-community
 langchain-core
 langchain-groq
 langchain-openai
